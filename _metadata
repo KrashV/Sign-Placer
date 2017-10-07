@@ -1,0 +1,8 @@
+{
+  "description" : "Places signs made with Silverfeelin generator: https://github.com/Silverfeelin/Starbound-AnimatedSigns",
+  "requires" : [],
+  "author" : "Degranon",
+  "version" : "1.0",
+  "friendlyName" : "Sign Placer",
+  "name" : "SignPlacer"
+}
