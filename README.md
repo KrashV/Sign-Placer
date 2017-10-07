@@ -11,7 +11,7 @@ Download the [Animated Signs generator](https://github.com/Silverfeelin/Starboun
 
 # Pre-Usage
 
-Make sure you've stared numerating the signs from `[0,0].`
+Make sure you've stared numerating the signs from `[0,0]`.
 After finishing setting up your signs in the generator, press `Create and Export` button. Now, you have to save it inside Sign Placer mod.
 
 Let's say you called the folder "My First Picture". After pressing `Create and Export` button, navigate to
