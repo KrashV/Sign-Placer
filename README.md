@@ -1,5 +1,6 @@
-# Sign-Placer
-Starbound Sign Placer allows you to spawn signs made with Silverfeelin generator using the power of code, not your hands.
+
+# Starbound Sign Placer
+Place custom signs in one click
 
 # Installation
 
@@ -10,9 +11,9 @@ Download the [Animated Signs generator](https://github.com/Silverfeelin/Starboun
 
 # Pre-Usage
 
-After finishing setting up your signs in the generator, press **Create and Export** button. Now, you have to save it inside Sign Placer mod.
+After finishing setting up your signs in the generator, press `Create and Export` button. Now, you have to save it inside Sign Placer mod.
 
-Let's say you called the folder "My First Picture". After pressing **Create and Export** button, navigate to
+Let's say you called the folder "My First Picture". After pressing `Create and Export` button, navigate to
 > /Starbound/mods/Sign Placer
 
 and put save your folder there. So the final path will look like
@@ -22,7 +23,7 @@ Now launch Starbound.
 
 # Usage
 
-In Starbound, open starting crafting menu (_C_ by default) and craft Sign Placer: it's totally free!
+In Starbound, open starting crafting menu (`C` by default) and craft Sign Placer: it's totally free!
 
 Now, go to debug mode: open chat and run next command:
 
