@@ -1,5 +1,5 @@
 # Sign-Placer
-Starbound Sign Placer
+Starbound Sign Placer allows you to spawn signs made with Silverfeelin generator using the power of code, not your hands.
 
 # Installation
 
