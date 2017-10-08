@@ -71,7 +71,7 @@ function SetColor(position)
   local temp = position
   
   -- we need to check 4 blocks for every sign
-  for i = 0, self.signDimension[1] do
+  for i = 0, self.signDimension[1] - 1 do
     temp = vec2.add(position, {i, 0})
 	-- is there a tile on the background and if it's occupied by other objects / tiles already and the tile is not protected
     if not world.tileIsOccupied(temp, false) or world.tileIsOccupied(temp, true) or world.isTileProtected(temp) then
