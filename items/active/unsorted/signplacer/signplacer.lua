@@ -23,6 +23,8 @@ function init()
   message.setHandler("signPlacerMessage", function (_, _, data) self.data = data end)
   sb.setLogMap("^cyan;Sign Folder Name^reset;", "Not Selected")
   
+    -- sets the item between hands
+  activeItem.setOutsideOfHand(false)
 end
 
 -- Update function, is called every tick
@@ -38,6 +40,15 @@ function update(dt, fireMode, shiftHeld)
 	PlaceSigns()
   end
   
+  DrawPolygones()
+  
+  self.previous_mode = fireMode
+  updateAim()
+end
+
+-- Draws the polygones
+function DrawPolygones()
+
   if self.data and self.data.name then
     self.anchor = activeItem.ownerAimPosition()
 	self.anchor[1] = math.floor(self.anchor[1])
@@ -52,10 +63,8 @@ function update(dt, fireMode, shiftHeld)
 	  end
 	end
   end
-  
-  self.previous_mode = fireMode
-  updateAim()
 end
+
 
 -- Determines the color: if a sign can be placed at the position, it will be colored green, red otherwise
 function SetColor(position)
@@ -64,8 +73,8 @@ function SetColor(position)
   -- we need to check 4 blocks for every sign
   for i = 0, self.signDimension[1] do
     temp = vec2.add(position, {i, 0})
-	-- is there a tile on the background and if it's occupied by other objects / tiles already
-    if not world.tileIsOccupied(temp, false) or world.tileIsOccupied(temp, true) then
+	-- is there a tile on the background and if it's occupied by other objects / tiles already and the tile is not protected
+    if not world.tileIsOccupied(temp, false) or world.tileIsOccupied(temp, true) or world.isTileProtected(temp) then
       return self.badPlaceColor
     end
   end
@@ -95,6 +104,4 @@ function updateAim()
   self.aimAngle, self.facingDirection = activeItem.aimAngleAndDirection(0, activeItem.ownerAimPosition())
   activeItem.setFacingDirection(self.facingDirection)
   activeItem.setArmAngle(self.aimAngle)
-  -- sets the item between hands
-  activeItem.setOutsideOfHand(false)
 end
