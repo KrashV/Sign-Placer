@@ -4,7 +4,7 @@ Place custom signs in one click
 
 # Installation
 
-Download the mod form the site and put it into your mods folder:
+Download the [latest release](https://github.com/KrashV/Sign-Placer/releases) and unpack it into your mods folder:
 > /Starbound/mods/Sign Placer
 
 Download the [Animated Signs generator](https://github.com/Silverfeelin/Starbound-AnimatedSigns) by Silverfeelin.
