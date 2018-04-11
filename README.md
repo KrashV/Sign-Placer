@@ -26,13 +26,7 @@ Now launch Starbound.
 
 In Starbound, open starting crafting menu (`C` by default) and craft Sign Placer: it's totally free!
 
-Now, go to debug mode: open chat and run the next command:
-
-> /debug
-
-Usually, you have to gain admin access first, but you can change that by editing starbound.config file
-
 Pressing Right Mouse button will open the User Interface, where you have to write the name of the folder you've put in the mod folder. In addition, you can select how many signs you want to generate (it is count from the bottom left corner).
 When you're set, press Accept. If you typed it right, "All done" message will appear. Close the window but don't put the item away.
 
-Now in debug mode you can see your future picture: green polys mean you can place signs here safely, the red ones warns you that signs won't spawn there. When you find your spot, simply press Left Mouse Button, and voila! Profit!
+Now you can see your future picture: colored green mean you can place signs here safely, the red warns you that signs won't spawn there. When you find your spot, simply press Left Mouse Button, and voila! Profit!
