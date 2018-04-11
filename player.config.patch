@@ -1,4 +1,9 @@
-[{
+[	{
+		"op": "add",
+		"path": "/deploymentConfig/scripts/-",
+		"value": "/scripts/signplacer.lua"
+	},
+	{
 	"op": "add",
 	"path": "/defaultBlueprints/tier1/-",
 	"value": {
