@@ -1,13 +1,13 @@
 -- GUI handler for Sign Placer.
 
 function init()
-
+  self.signFolder = "PUT_SIGNS_HERE/"
 end
 
 -- Searches the folder with generated signs given by name
 function search(name)
   
-  if pcall(function() root.assetJson("/"..name.."/"..name.." [0,0].json") end) then
+  if pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.." [0,0].json") end) then
     widget.setText("lblWarning", "^#00ff00;All Good")
 	return true
   else
@@ -38,7 +38,7 @@ function findDimension(name)
   local j = 0
   
   while true do
-    if not pcall(function() root.assetJson("/"..name.."/"..name.." ["..i..",0].json") end) then
+    if not pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.." ["..i..",0].json") end) then
 	  break
 	else
 	  i = i + 1
@@ -46,7 +46,7 @@ function findDimension(name)
   end
   
    while true do
-    if not pcall(function() root.assetJson("/"..name.."/"..name.." [0,"..j.."].json") end) then
+    if not pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.." [0,"..j.."].json") end) then
 	  break
 	else
 	  j = j + 1

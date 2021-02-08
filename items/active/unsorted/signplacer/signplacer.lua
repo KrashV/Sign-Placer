@@ -14,7 +14,8 @@ function init()
 
   self.data = {}
   self.signDimension = {4, 1}
-
+  self.signFolder = "PUT_SIGNS_HERE/"
+  
   message.setHandler("signPlacerMessage", function (_, _, data) self.data = data end)
   sb.setLogMap("^cyan;Sign Folder Name^reset;", "Not Selected")
 
@@ -52,9 +53,9 @@ function PlaceSigns()
     for i = 0, self.data.wNumber - 1 do
       for j = 0, self.data.hNumber - 1 do
         local position = vec2.add(self.anchor, vec2.mul(self.signDimension, {i ,j}))
-	      sign = root.assetJson("/"..self.data.name.."/"..self.data.name.." ["..i..","..j.."].json")
+        local sign = root.assetJson("/"..self.signFolder..self.data.name.."/"..self.data.name.." ["..i..","..j.."].json")
 		    -- the function recieves the position as the center of the future object, so we have to move it
-        world.placeObject("customsign", vec2.add(position, {2, 0}), 1, sign.parameters)
+        world.placeObject(sign.name, vec2.add(position, {2, 0}), 1, sign.parameters)
       end
     end
   end
