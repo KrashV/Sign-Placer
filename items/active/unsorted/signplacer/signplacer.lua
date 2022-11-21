@@ -50,11 +50,14 @@ function PlaceSigns()
   self.anchor = vec2.floor(activeItem.ownerAimPosition())
 
   if self.data and self.data.name then
-    for i = 0, self.data.wNumber - 1 do
-      for j = 0, self.data.hNumber - 1 do
-        local position = vec2.add(self.anchor, vec2.mul(self.signDimension, {i ,j}))
-        local sign = root.assetJson("/"..self.signFolder..self.data.name.."/"..self.data.name.." ["..i..","..j.."].json")
+    for i = self.data.startIndex, self.data.wNumber - 1 + self.data.startIndex do
+      for j = self.data.startIndex, self.data.hNumber - 1 + self.data.startIndex do
+        local position = vec2.add(self.anchor, vec2.mul(self.signDimension, {i - self.data.startIndex ,j - self.data.startIndex}))
+        local sign = root.assetJson("/"..self.signFolder..self.data.name.."/"..self.data.name.."["..i..","..j.."].json")
 		    -- the function recieves the position as the center of the future object, so we have to move it
+        
+        -- add the smashOnBreak parameter
+        sign.parameters.smashOnBreak = true
         world.placeObject(sign.name, vec2.add(position, {2, 0}), 1, sign.parameters)
       end
     end

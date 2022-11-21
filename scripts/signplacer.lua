@@ -19,11 +19,11 @@ function drawImagePreview(_, _, anchor, data)
     self.anchor = vec2.floor(anchor)
 
     localAnimator.clearDrawables()
-  	for i = 0, data.wNumber - 1 do
-  	  for j = 0, data.hNumber - 1 do
-  	    local position = vec2.add(self.anchor, vec2.mul(self.signDimension, {i ,j}))
+  	for i = data.startIndex, data.wNumber - 1 + data.startIndex do
+  	  for j = data.startIndex, data.hNumber - 1 + data.startIndex do
+  	    local position = vec2.add(self.anchor, vec2.mul(self.signDimension, {i - data.startIndex, j - data.startIndex}))
         localAnimator.addDrawable({
-          image = self.customSignPath .. root.assetJson("/"..self.signFolder..data.name.."/"..data.name.." ["..i..","..j.."].json").parameters.signData[1],
+          image = self.customSignPath .. root.assetJson("/"..self.signFolder..data.name.."/"..data.name.."["..i..","..j.."].json").parameters.signData[1],
           position = vec2.sub(position, world.entityPosition(player.id())),
           color = SetColor(position),
           centered = false,
