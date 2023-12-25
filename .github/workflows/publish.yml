@@ -15,7 +15,7 @@ jobs:
 
       - name: Pak the repository
         run: |
-          .github/tools/asset_packer.exe . -c .github/tools/packing.config IrdenCustomChat.pak
+          .github/tools/asset_packer.exe . -c .github/tools/packing.config SignPlacer.pak
 
       - name: Get version
         id: extract_version
@@ -25,6 +25,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           body_path: CHANGELOG.txt
-          files: IrdenCustomChat.pak       
+          files: SignPlacer.pak       
           tag_name: v${{ steps.extract_version.outputs.version }}
           name: Release V${{ steps.extract_version.outputs.version }}
