@@ -3,7 +3,7 @@ name: Generate Archive and Create Release
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
