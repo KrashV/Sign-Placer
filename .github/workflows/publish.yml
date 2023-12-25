@@ -1,0 +1,30 @@
+name: Generate Archive and Create Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Pak the repository
+        run: |
+          .github/tools/asset_packer.exe . -c .github/tools/packing.config IrdenCustomChat.pak
+
+      - name: Get version
+        id: extract_version
+        run: echo "::set-output name=version::$(jq -r '.version' _metadata)"
+
+      - name: 'Create GitHub Release'
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: CHANGELOG.txt
+          files: IrdenCustomChat.pak       
+          tag_name: v${{ steps.extract_version.outputs.version }}
+          name: Release V${{ steps.extract_version.outputs.version }}

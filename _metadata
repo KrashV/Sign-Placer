@@ -2,7 +2,7 @@
   "description" : "Place these signs in one click!",
   "requires" : [],
   "author" : "Degranon",
-  "version" : "1.0",
+  "version" : "1.4",
   "friendlyName" : "Signplacer",
   "name" : "Signplacer"
 }
