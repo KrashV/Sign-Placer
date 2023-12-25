@@ -1,7 +1,7 @@
 -- GUI handler for Sign Placer.
 
 function init()
-  self.signFolder = "PUT_SIGNS_HERE/"
+  self.signFolder = "put_signs_here/"
 end
 
 -- Searches the folder with generated signs given by name

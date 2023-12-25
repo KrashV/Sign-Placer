@@ -11,7 +11,7 @@ init = function()
   self.badPlaceColor = {255, 150, 150, 128}
 
   self.customSignPath = "/objects/outpost/customsign/signplaceholder.png"
-  self.signFolder = "PUT_SIGNS_HERE/"
+  self.signFolder = "put_signs_here/"
   message.setHandler("drawImagePreview", drawImagePreview)
 end
 

@@ -14,7 +14,7 @@ function init()
 
   self.data = {}
   self.signDimension = {4, 1}
-  self.signFolder = "PUT_SIGNS_HERE/"
+  self.signFolder = "put_signs_here/"
   
   message.setHandler("signPlacerMessage", function (_, _, data) self.data = data end)
   sb.setLogMap("^cyan;Sign Folder Name^reset;", "Not Selected")
