@@ -53,7 +53,7 @@ function PlaceSigns()
     for i = self.data.startIndex, self.data.wNumber - 1 + self.data.startIndex do
       for j = self.data.startIndex, self.data.hNumber - 1 + self.data.startIndex do
         local position = vec2.add(self.anchor, vec2.mul(self.signDimension, {i - self.data.startIndex ,j - self.data.startIndex}))
-        local sign = root.assetJson("/"..self.signFolder..self.data.name.."/"..self.data.name.."["..i..","..j.."].json")
+        local sign = root.assetJson("/" .. self.signFolder .. self.data.name .. "/".. self.data.name .. self.data.space .. "["..i..","..j.."].json")
 		    -- the function recieves the position as the center of the future object, so we have to move it
         
         -- add the smashOnBreak parameter

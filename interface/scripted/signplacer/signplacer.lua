@@ -9,15 +9,25 @@ function search(name)
   
   if pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.."[0,0].json") end) then
     widget.setText("lblWarning", "^#00ff00;All Good")
-    return 0
+    widget.blur("txbName")
+    return 0, false
+  elseif pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.." [0,0].json") end) then
+    widget.setText("lblWarning", "^#00ff00;All Good")
+    widget.blur("txbName")
+    return 0, true
   elseif pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.."[1,1].json") end) then
     widget.setText("lblWarning", "^#00ff00;All Good")
-    return 1
+    widget.blur("txbName")
+    return 1, false
+  elseif pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.." [1,1].json") end) then
+    widget.setText("lblWarning", "^#00ff00;All Good")
+    widget.blur("txbName")
+    return 1, true
 	else
     widget.setText("lblWarning", "^#ff0000;Folder Not Found")
-    return false
+    widget.blur("txbName")
+    return false, false
   end
-
 end
 
 -- Sets the dimension settings visible
@@ -36,12 +46,14 @@ function autoDimension()
 end
 
 -- Determines the dimensions of the original image (in signs :P)
-function findDimension(name, startIndex)
+function findDimension(name, startIndex, hasSpace)
   local i = startIndex
   local j = startIndex
   
+  local space = hasSpace and " " or ""
+  
   while true do
-    if not pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.."["..i.."," .. startIndex .. "].json") end) then
+    if not pcall(function() root.assetJson("/"..self.signFolder..name.."/" ..name .. space .. "["..i.."," .. startIndex .. "].json") end) then
       break
     else
       i = i + 1
@@ -49,7 +61,7 @@ function findDimension(name, startIndex)
   end
   
    while true do
-    if not pcall(function() root.assetJson("/"..self.signFolder..name.."/"..name.."[" .. startIndex .. ","..j.."].json") end) then
+    if not pcall(function() root.assetJson("/" .. self.signFolder .. name .. "/".. name .. space .."[" .. startIndex .. ","..j.."].json") end) then
       break
     else
       j = j + 1
@@ -64,7 +76,8 @@ function accept()
   local name = widget.getText("txbName")
   
   -- if not found, return with an error
-  local startIndex = search(name)
+  local startIndex, hasSpace = search(name)
+  
   if not startIndex then
     widget.setText("lblWarning", "^#ff0000;Folder Not Found")
     return
@@ -76,7 +89,7 @@ function accept()
 	return
   end
   
-  wNumber, hNumber = findDimension(name, startIndex)
+  wNumber, hNumber = findDimension(name, startIndex, hasSpace)
   
   -- if the dimensions are wrong, return with an error
   if not widget.getChecked("cbAutoDim") then
@@ -100,7 +113,8 @@ function accept()
     name = name, 	
     wNumber = wNumber, 	
     hNumber = hNumber,
-    startIndex = startIndex
+    startIndex = startIndex,
+    space = hasSpace and " " or ""
 	})
 
 end
