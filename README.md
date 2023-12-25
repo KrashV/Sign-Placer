@@ -11,13 +11,15 @@ Download the [Animated Signs generator](https://github.com/Silverfeelin/Starboun
 
 # Pre-Usage
 
-After finishing setting up your signs in the generator, press `Create and Export` button. Now, you have to save it inside Sign Placer mod.
+After finishing setting up your signs in the generator, press `Create and Export` button. Now, you have to save it either inside Sign Placer mod or outside one.
+
+We suggest to create a separate folder since the .pak file can be updated with future releases. So let's do that: in `mods` folder create a new one, i.e. `MySignsToPlace`
 
 Let's say you called the folder "My First Picture". After pressing `Create and Export` button, navigate to
-> /Starbound/mods/Sign Placer/put_signs_here
+> /Starbound/mods/MySignsToPlace/put_signs_here
 
 and put save your folder there. So the final path will look like
-> /Starbound/mods/Sign Placer/put_signs_here/My First Picture
+> /Starbound/mods/MySignsToPlace/put_signs_here/My First Picture
 
 Now launch Starbound.
 
