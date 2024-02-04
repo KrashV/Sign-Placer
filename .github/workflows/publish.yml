@@ -3,7 +3,7 @@ name: Generate Archive and Create Release
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -28,3 +28,16 @@ jobs:
           files: SignPlacer.pak       
           tag_name: v${{ steps.extract_version.outputs.version }}
           name: Release V${{ steps.extract_version.outputs.version }}
+
+      - name: Get changelog content
+        id: read_file
+        uses: andstor/file-reader-action@v1
+        with:
+          path: "CHANGELOG.txt"
+
+      - name: Discord Webhook Action
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.WEBHOOK_URL }}
+          filename: SignPlacer.pak  
+          content: "<@&${{ vars.ROLE_MENTION }}> SignPlacer V${{ steps.extract_version.outputs.version }}\n${{ steps.read_file.outputs.contents }}"
